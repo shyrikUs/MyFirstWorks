@@ -1,0 +1,57 @@
+#container {
+    width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+#addGallery {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+#bigImg {
+    width: 100%;
+    height: 600px;
+    background: red;
+
+
+
+}
+#bigImg img {
+    width: 100%;
+    height: 100%;
+
+}
+#smallImg {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+
+
+
+
+}
+.smallImg__item {
+    width: 150px;
+    height: 150px;
+    background: yellow;
+}
+.smallImg__item img {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+#nextTask {
+    padding: 20px;
+    background: green;
+    position: absolute;
+    top: 0;
+    right: -200px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 10px;
+}
+.div {
+    text-align: center;
+    font-size: 56px;
+    color: red;
+}
