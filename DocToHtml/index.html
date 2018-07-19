@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body{
+            margin: 0 auto;
+            font-size: 14px;
+            font-family:'Arial', sans-serif;
+            max-width: 1200px;
+        }
+        .wrapper{
+            padding: 5%;
+            position: relative;
+        }
+
+        .page_header {
+            position: relative;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .logo{
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin-right: 5%;
+        }
+        .logo__item{
+            width: 250px;
+        }
+        @media all and (max-width: 767px) {
+            body{
+                font-size: 12px;
+            }
+            .logo__item {
+                width: 190px;
+            }
+        }
+        .page_header div {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+        }
+
+        .city, .date {
+            display: inline-block;
+        }
+
+        .city {
+            margin-left: 5%;
+        }
+        .date {
+            margin-right: 5%;
+        }
+
+        @media all and (max-width: 479px) {
+            .page_header div{
+                display: block;
+            }
+            .city, .date {
+                margin: 10px auto;
+                display: block;
+            }
+        }
+        .agreementDetails{
+            text-align: justify;
+        }
+        .list{
+            list-style: none;
+            counter-reset: myCounter;
+            margin: 0;
+            padding: 0;
+        }
+
+        .list .list__item:before {
+            counter-increment: myCounter;
+            content: counter(myCounter)".";
+        }
+        .list .list__item_center{
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .list .list__item .innerList {
+            list-style: none;
+            counter-reset: innerList;
+            margin: 0;
+            padding: 0;
+            text-transform: none;
+            font-weight: 300;
+            text-align: justify;
+        }
+        .list .list__item .innerList .innerList__item:before {
+            counter-increment: innerList;
+            content: counter(myCounter)"."counter(innerList);
+        }
+        .list .list__item .innerList .innerList__item a{
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+        }
+        .list .list__item .innerList .innerList__item_bold {
+            font-weight: bold;
+        }
+        .list .list__item .innerList .innerList__item a:hover {
+            color: #6E5DC5;
+        }
+        .list .list__item .innerList .innerList__item .subInnerList{
+            list-style: none;
+            counter-reset: subInnerList;
+            margin: 0;
+            padding: 0;
+            text-transform: none;
+            font-weight: 300;
+            text-align: justify;
+        }
+        .list .list__item .innerList .innerList__item .subInnerList .subInnerList__item:before{
+            counter-increment: subInnerList;
+            content: counter(myCounter)"."counter(innerList)"."counter(subInnerList);
+        }
+        .sideTable {
+            width: 100%;
+            font-weight: 300;
+            text-transform: none;
+            border-collapse: collapse;
+
+        }
+        .sideTable .sideTable__item {
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid black;
+            word-break: break-all;
+            width: 50%;
+        }
+
+        .sideTable .sideTable__item .director{
+            text-align: left;
+        }
+        .sideTable .sideTable__item .director__info, .sideTable .sideTable__item .user{
+            text-align: right;
+        }
+
+        .sideTable .sideTable__item .director__info .name{
+
+            display: inline-block;
+        }
+        .sideTable .sideTable__item .director__info .signature{
+            display: inline-block;
+            border-bottom: 1px solid black;
+            width: 20%;
+        }
+
+        .sideTable .sideTable__header{
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        .tel{
+            margin-left: 30px;
+            position: relative;
+            margin-top: 2px;
+        }
+        .tel__k:before, .tel__v:before, .tel__l:before{
+            content: '';
+            position: absolute;
+            left: 0;
+            background: url("https://static.monetka.com.ua/phone.png") no-repeat;
+            /**/
+            height: 25px;
+            width: 75px;
+        }
+        .tel__v:before{
+            background-position: 0 -30px;
+        }
+        .tel__l:before{
+            background-position: 0 -58px;
+        }
+        .tel__k, .tel__v, .tel__l, .tel__u{
+            margin-left: 75px;
+            font-size: 12px;
+            line-height: 25px;
+            margin-bottom: 2px;
+        }
+        @media all and (max-width: 479px) {
+            .tel__k:before, .tel__l:before{
+                width: 25px;
+            }
+            .tel__v:before {
+                width: 20px;
+            }
+            .tel__k, .tel__v, .tel__l, .tel__u{
+                margin-left: 30px;
+            }
+        }
+        .sideInfoList {
+            margin-top: 30px;
+            padding: 0;
+            text-transform: none;
+            font-weight: 300;
+            list-style: none;
+            text-align: left;
+        }
+        .contractAdd {
+            margin-top: 10%;
+        }
+        .contractAdd .contractAdd__header{
+            text-align: right;
+        }
+
+        .contractAdd .contractAdd__title, .contractAdd .contractAdd_subTittle {
+            margin-top: 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+            text-align: center;
+        }
+        .addList {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            counter-reset: listAdd;
+        }
+        .addList__item:before{
+            counter-increment: listAdd;
+            content: counter(listAdd)".";
+        }
+
+        .contractAdd .pay{
+            width: 100%;
+            text-align: center;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+
+        }
+        .contractAdd .pay td {
+            padding: 5px;
+            border: 1px solid black;
+            width: 25%;
+            word-break: break-all;
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <a href="http://www.monetka.com.ua" class="logo"><img src="https://static.monetka.com.ua/logo-monetka.svg" alt="MONETKA.org.ua" class="logo__item"></a>.
+    <div class="page_header">
+        <b>ДОГОВІР &#8470; ${A.loan_agreement_number}</b>
+        <div>
+            <p class="city">м. Бровари </p>
+            <p class="date">${A.loan_agreement_start_date_str}</p>
+        </div>
+    </div>
+    <div class="agreementDetails">
+        <b>ТОВАРИСТВО З&nbsp;ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ &laquo;ФІНАНСОВА КОМПАНІЯ &laquo;ФІНАНС ІННОВАЦІЯ&raquo;,</b> іменоване надалі
+        <b>&laquo;Товариство&raquo;</b> в&nbsp;особі директора Картамишева Сергія Олександровича, який діє на&nbsp;підставі Статуту, з&nbsp;однієї сторони, та
+        <b>${A.last_name} ${A.first_name} ${A.middle_name},</b>${A.passport_type} серії <b>${A.passport_series}</b>
+        номер <b>${A.passport_number},</b> виданий <i>(орган що&nbsp;видав)</i> <b>${A.passport_issued_by}</b> дата видачі,
+        <b>${A.passport_issued_date_str},</b>номер картки платника податків <b>${A.inn},</b> адреса реєстрації
+        <b>${A.registration_address</b>} іменоване надалі <b>&laquo;Позичальник&raquo;</b> з&nbsp;іншої сторони, разом по&nbsp;тексту
+        &mdash;&nbsp;&laquo;Сторони&raquo;, уклали цей <b>ДОГОВІР &#8470; ${A.loan_agreement_number}</b> від <b>${A.loan_agreement_start_date_str}</b> року (далі&nbsp;&mdash; &laquo;Договір&raquo;) про наступне.
+    </div>
+    <div class="contractInfo">
+        <ul class="list">
+            <li class="list__item list__item_center">ПРЕДМЕТ ТА&nbsp;СТРОК ДІЇ ДОГОВОРУ
+                <ul class="innerList">
+                    <li class="innerList__item">
+                        Товариство надає Позичальникові грошові кошти в&nbsp;розмірі ${A.loan_agreement_sum} гривень
+                        (${A.loan_agreement_sum_words}) (далі&nbsp;&mdash; <b>Кредит</b>) на&nbsp;умовах строковості, зворотності,
+                        платності, а&nbsp;Позичальник зобов&rsquo;язується повернути Кредит та&nbsp;сплатити проценти за&nbsp;користування
+                        Кредитом не&nbsp;пізніше строку, визначеного в&nbsp;пункті 1.3 цього Договору. Кредит надається не&nbsp;на
+                        споживчі цілі.
+                    </li>
+                    <li class="innerList__item">
+                        Сторони погодили наступну процентну ставку за&nbsp;користування Кредитом: -
+                        <b>${A.loan_agreement_percent}%</b> від суми Кредиту за&nbsp;кожний день користування Кредитом у
+                        межах строку, визначеного в&nbsp;п.1.3 цього Договору.
+                    </li>
+                    <li class="innerList__item">
+                        Строк надання Кредиту та&nbsp;строк дії Договору становить <b>${A.loan_agreement_dur}</b> днів,
+                        але в&nbsp;будь-якому випадку строк користування грошовими коштами, наданими у&nbsp;Кредит не&nbsp;може
+                        становити менше&nbsp;3 (трьох) календарних днів. Строк надання Кредиту може бути подовжений в
+                        порядку та&nbsp;на&nbsp;умовах, визначених цим Договором.
+                    </li>
+                    <li class="innerList__item">
+                        Невід&rsquo;ємною частиною цього Договору є&nbsp;<b>Правила надання грошових коштів &laquo;Товариства&raquo;,
+                        Порядок надання фінансових Кредитів за&nbsp;рахунок власних коштів &laquo;Товариства&raquo; </b>(далі&nbsp;&mdash; Правила)
+                        які розміщені на&nbsp;Сайті <a href="http://www.monetka.com.ua">monetka.com.ua</a>.
+                    </li>
+                    <li class="innerList__item">
+                        Сукупна вартість Кредиту зазначена в&nbsp;Графіку розрахунків, що&nbsp;є&nbsp;невід&rsquo;ємною частиною цього
+                        Договору.
+                    </li>
+                </ul>
+            </li>
+            <li class="list__item list__item_center">
+                ПРАВА ТА&nbsp;ОБОВ&rsquo;ЯЗКИ СТОРІН
+                <ul class="innerList">
+                    <li class="innerList__item innerList__item_bold"> Товариство має право:
+                        <ul class="subInnerList">
+                            <li class="subInnerList__item">
+                                вимагати від Позичальника повернення Кредиту, сплати процентів за&nbsp;користування Кредитом та&nbsp;виконання усіх інших
+                                встановлених Договором зобов&rsquo;язань;
+                            </li>
+                            <li class="subInnerList__item">
+                                вимагати від Позичальника дострокового повернення Кредиту та&nbsp;сплати процентів за&nbsp;користування Кредитом в&nbsp;разі виявлення недостовірної інформації у&nbsp;Заяві на&nbsp;отримання Кредиту, та/або отримання негативної інформації про Позичальника в&nbsp;Бюро Кредитних історій, та/або в&nbsp;разі дострокового припинення надання Товариством фінансових послуг;
+                            </li>
+                            <li class="subInnerList__item">
+                                Ініціювати договірне списання грошових коштів з&nbsp;банківського рахунку, вказаного Позичальником, до&nbsp;повного погашення Заборгованості;
+                            </li>
+                            <li class="subInnerList__item">
+                                відмовити від надання Позичальнику передбаченого Договором Кредиту частково або в&nbsp;повному обсязі у&nbsp;разі порушення процедури отримання коштів у&nbsp;Кредит, встановленої Правилами або за&nbsp;наявності інших обставин, які явно свідчать про&nbsp;те, що&nbsp;наданий Позичальникові Кредит не&nbsp;буде повернений;
+                            </li>
+                            <li class="subInnerList__item">
+                                укласти договір відступлення права вимоги за&nbsp;Договором або договір факторингу з&nbsp;будь- якою третьою особою;
+                            </li>
+                            <li class="subInnerList__item">
+                                інші права, передбачені Договором та&nbsp;чинним законодавством.
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="innerList__item innerList__item_bold"> Товариство зобов&rsquo;язане:
+                        <ul class="subInnerList">
+                            <li class="subInnerList__item">
+                                прийняти від Позичальника виконання зобов&rsquo;язань за&nbsp;Договором (у&nbsp;тому числі дострокове&nbsp;&mdash; як&nbsp;частинами, так і&nbsp;в
+                                повному обсязі);
+                            </li>
+                            <li class="subInnerList__item">
+                                повідомляти Позичальнику про зміну даних, зазначених у&nbsp;розділі 6&nbsp;Договору в&nbsp;3-денний строк з&nbsp;моменту виникнення таких змін;
+                            </li>
+                            <li class="subInnerList__item">
+                                виконувати інші обов&rsquo;язки, передбачені Договором та&nbsp;чинним законодавством.
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="innerList__item innerList__item_bold">
+                        Позичальник має право:
+                        <ul class="subInnerList">
+                            <li class="subInnerList__item">
+                                відмовитися від одержання Кредиту частково або в&nbsp;повному обсязі, повідомивши про це&nbsp;Товариства до&nbsp;встановленого Договором строку його надання (перерахування Товариством грошових коштів на&nbsp;картковий рахунок Позичальника);
+                            </li>
+                            <li class="subInnerList__item">
+                                достроково повернути Кредит як&nbsp;в&nbsp;повному обсязі, так і&nbsp;частинами, сплативши проценти за&nbsp;користування Кредитом, виходячи з&nbsp;фактичного залишку суми Кредиту та&nbsp;строку користування Кредитом (який, як&nbsp;узгоджено Сторонами в&nbsp;пункті 1.3. Договору, не&nbsp;може бути меншим ніж&nbsp;3 (три) календарних дні);
+                            </li>
+                            <li class="subInnerList__item">
+                                доступу до&nbsp;інформації з&nbsp;питань надання фінансових послуг та&nbsp;інформації, право на&nbsp;отримання якої закріплено законодавством України;
+                            </li>
+                            <li class="subInnerList__item">
+                                здійснити оформлення продовження строку надання Кредиту та&nbsp;строку дії Договору, скориставшись одним з&nbsp;варіантів процедури продовження строку надання Кредиту та&nbsp;дії Договору, визначених у&nbsp;Правилах;
+                            </li>
+                            <li class="subInnerList__item">
+                                інші права, передбачені Договором та&nbsp;чинним законодавством.
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="innerList__item innerList__item_bold">
+                        Позичальник зобов&rsquo;язаний:
+                        <ul class="subInnerList">
+                            <li class="subInnerList__item">
+                                у&nbsp;встановлений Договором строк повернути Кредит та&nbsp;сплатити проценти за&nbsp;його користування;
+                            </li>
+                            <li class="subInnerList__item">
+                                повідомляти Товариству про зміну даних, зазначених у&nbsp;розділі 6&nbsp;Договору в&nbsp;3-денний строк з&nbsp;моменту виникнення таких змін;
+                            </li>
+                            <li class="subInnerList__item">
+                                у&nbsp;випадку подальшої зміни Терміну платежу (оформлення продовження), сплачувати Товариству проценти за&nbsp;користування Кредитом у&nbsp;розмірі <b>${A.loan_agreement_base_percent}%</b> в&nbsp;день від суми Кредиту (згідно Правил), починаючи з&nbsp;першого дня продовження на&nbsp;період строку її&nbsp;дії. При цьому Сторони визнають, що&nbsp;така зміна Процентної ставки є&nbsp;їх&nbsp;двостороннім взаємним рішенням, попередньо узгодженою умовою даного пункту Договору;
+                            </li>
+                            <li class="subInnerList__item">
+                                виконувати інші обов&rsquo;язки, передбачені Договором та&nbsp;чинним законодавством.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="list__item list__item_center">
+                ВІДПОВІДАЛЬНІСТЬ СТОРІН ТА&nbsp;ПОРЯДОК ПОВЕРНЕННЯ КРЕДИТУ
+                <ul class="innerList">
+                    <li class="innerList__item">
+                        Сторони несуть відповідальність за&nbsp;порушення умов цього Договору згідно з&nbsp;чинним законодавством України та&nbsp;цим Договором. Порушення умов цього Договору є&nbsp;його невиконання або неналежне виконання, тобто виконання з&nbsp;порушенням умов, визначених змістом цього Договору.
+                    </li>
+                    <li class="innerList__item">
+                        Закінчення строку дії цього Договору не&nbsp;звільняє Сторони від відповідальності за&nbsp;порушення умов, яке мало місце під час дії Договору та&nbsp;не&nbsp;припиняє нарахування Товариством процентів за&nbsp;користування Кредитом.
+                    </li>
+                    <li class="innerList__item">
+                        У&nbsp;випадку порушення строків повернення Кредиту, встановлених пунктом 1.3. Договору (з&nbsp;урахуванням пролонгації строку дії Договору), Позичальник сплачує Товариству плату за&nbsp;користування Кредитом за&nbsp;підвищеною ставкою -
+                        <b>${A.loan_agreement_penalty_percent}%</b> від суми несвоєчасно повернутого Кредиту за&nbsp;кожний день користування Кредитом понад строк, зазначений у&nbsp;пункті 1.3 цього Договору.
+                    </li>
+                    <li class="innerList__item">
+                        Сума Кредиту та&nbsp;проценти за&nbsp;користування Кредитом підлягають сплаті Позичальником шляхом безготівкового перерахування коштів на&nbsp;поточний рахунок Товариства, зазначений у&nbsp;розділі 6&nbsp;цього Договору.
+                    </li>
+                    <li class="innerList__item">
+                        Нарахування процентів за&nbsp;цим Договором здійснюється за&nbsp;фактичну кількість календарних днів користування Кредитом (крім випадку, узгодженого Сторонами в&nbsp;пункті 3.7. цього Договору). При цьому проценти за&nbsp;користування Кредитом нараховуються щоденно, з&nbsp;дня його надання Позичальнику (дня перерахування грошових коштів на&nbsp;банківський рахунок Позичальника, номер якої було вказано Позичальником при реєстрації на&nbsp;Сайті Товариства
+                        <a href="http://www.monetka.com.ua">monetka.com.ua</a>.до дня повернення суми Кредиту (його частини), визначеної у&nbsp;пункту 1.1. цього Договору (зарахування грошових коштів на&nbsp;поточний рахунок Товариства, зазначений у&nbsp;розділі 6&nbsp;цього Договору) включно. При поверненні Кредиту частинами, нарахування і&nbsp;сплата процентів проводиться на&nbsp;залишок заборгованості за&nbsp;Кредитом.
+                    </li>
+                    <li class="innerList__item">
+                        При надходженні коштів для виконання зобов&rsquo;язань Позичальника, Товариство направляє їх&nbsp;в&nbsp;такій черговості:<br>
+                        &mdash;&nbsp;<b>у&nbsp;першу чергу</b> здійснюється сплата процентів за&nbsp;користування Кредитом;<br>
+                        &mdash;&nbsp;<b>у&nbsp;другу чергу</b> здійснюється повернення суми Кредиту.
+                    </li>
+                    <li class="innerList__item">
+                        У&nbsp;разі повернення Позичальником Кредиту у&nbsp;строк, який є&nbsp;меншим ніж строк користування грошовими коштами, що&nbsp;узгоджений Сторонами в&nbsp;пункті 1.3. цього Договору (3&nbsp;календарних дні), то&nbsp;у&nbsp;даному випадку нарахування процентів здійснюється за&nbsp;3 (три) календарних дні користування Кредитом.
+                    </li>
+                    <li class="innerList__item">
+                        Позичальник несе передбачену законодавством відповідальність, включаючи кримінальну, за&nbsp;використання чужих персональних даних та/або умисне отримання Кредиту за&nbsp;чужими та/або підробленими документами.
+                    </li>
+                    <li class="innerList__item">
+                        Товариство не&nbsp;несе відповідальності за&nbsp;передачу третім особам та/чи не&nbsp;збереження Позичальником своїх Даних, свого Логіну Особистого кабінету та&nbsp;Пароля Особистого кабінету.
+                    </li>
+                </ul>
+            </li>
+            <li class="list__item list__item_center">ПОРЯДОК ВИРІШЕННЯ СПОРІВ, ВНЕСЕННЯ ЗМІН, ДОПОВНЕНЬ ТА&nbsp;ПРИПИНЕННЯ ДОГОВОРУ
+                <ul class="innerList">
+                    <li class="innerList__item">
+                        Всі спори та&nbsp;непорозуміння щодо укладання, виконання, розірвання, зміни, визнання недійсним повністю або частково, а&nbsp;також з&nbsp;будь-яких інших питань, що&nbsp;стосуються цього Договору, підлягають регулюванню шляхом переговорів.
+                    </li>
+                    <li class="innerList__item">
+                        Якщо Сторони не&nbsp;можуть дійти згоди зі&nbsp;спірних питань шляхом проведення переговорів, то&nbsp;такий спір вирішується в&nbsp;судовому порядку за&nbsp;місцем виконання Договору згідно з&nbsp;чинним законодавством України. Місцем виконання цього Договору є&nbsp;місцезнаходження Товариства.
+                    </li>
+                    <li class="innerList__item">
+                        Сторони дійшли згоди, що&nbsp;у&nbsp;всіх відносинах між Позичальником та&nbsp;Товариством (заснованих як&nbsp;на&nbsp;першому Договорі, так і&nbsp;на&nbsp;всіх наступних договорах, інших договорах та&nbsp;угодах, які будуть укладені між Позичальником та&nbsp;Товариством у&nbsp;майбутньому) в&nbsp;якості електронного підпису Позичальника буде використовуватись Логін Особистого кабінету та&nbsp;Пароль Особистого кабінету.
+                    </li>
+                    <li class="innerList__item">
+                        Позичальник має право достроково розірвати цей Договір шляхом повернення всіх отриманих ним Кредитних коштів, оплати вартості користування ними та&nbsp;погашення всієї Кредитної заборгованості.
+                    </li>
+                    <li class="innerList__item">
+                        Договір може бути достроково розірваний також і&nbsp;у&nbsp;випадках передбачених чинним законодавством України.
+                    </li>
+                </ul>
+            </li>
+            <li class="list__item list__item_center">
+                IНШI&nbsp;УМОВИ ДОГОВОРУ
+                <ul class="innerList">
+                    <li class="innerList__item">
+                        Цей Договір складено в&nbsp;2 (двох) оригінальних примірниках, у&nbsp;електронному вигляді українською мовою, по&nbsp;одному для кожної із&nbsp;Сторін, що&nbsp;мають однакову юридичну силу. За&nbsp;бажанням Позичальника, яке визначається у&nbsp;його Особистому Кабінеті, Товариством на&nbsp;його адресу може бути надісланий Договір в&nbsp;паперовому вигляді.
+                    </li>
+                    <li class="innerList__item">
+                        Підписуючи даний Договір, Позичальник засвідчує, що:
+                        <ul class="subInnerList">
+                            <li class="subInnerList__item">
+                                ознайомлений, повністю розуміє та&nbsp;погоджується з&nbsp;усіма умовами та&nbsp;змістом Договору, Додатків до&nbsp;нього та&nbsp;Правил і&nbsp;зобов&rsquo;язується неухильно їх&nbsp;дотримуватись;
+                            </li>
+                            <li class="subInnerList__item">
+                                інформація надана Товариством забезпечує правильне розуміння Позичальником суті фінансової послуги за&nbsp;цим Договором без нав&rsquo;язування її&nbsp;придбання;
+                            </li>
+                            <li class="subInnerList__item">
+                                надав згоду, усвідомлюючи її&nbsp;правові наслідки, на&nbsp;використання електронного підпису в&nbsp;якості аналога власноручного підпису;
+                            </li>
+                            <li class="subInnerList__item">
+                                надав згоду на&nbsp;передачу своїх персональних даних та&nbsp;їх&nbsp;обробку Товариству, в&nbsp;тому числі з&nbsp;метою оцінки фінансового стану Позичальника та&nbsp;його спроможності виконати зобов&rsquo;язання за&nbsp;договором;
+                            </li>
+                            <li class="subInnerList__item">
+                                надав згоду на&nbsp;те, що&nbsp;Товариство, з&nbsp;метою отримання інформації про фінансовий стан Позичальника та&nbsp;перевірки його Кредитної історії, має право звернутися до&nbsp;третіх осіб, які пов&lsquo;язані з&nbsp;Позичальником діловими, професійними, особистими, сімейними або іншими стосунками, а&nbsp;також Бюро Кредитних історій;
+                            </li>
+                            <li class="subInnerList__item">
+                                надав згоду на&nbsp;те, що&nbsp;у&nbsp;разі невиконання або неналежного виконання зобов&rsquo;язань перед Товариством за&nbsp;цим Договором, Товариство має право передати персональні дані Позичальника третім особам (включаючи, але не&nbsp;обмежуючись, Бюро Кредитних історій, Кредитним установам, колекторським компаніям тощо) для захисту своїх законних прав та&nbsp;інтересів;
+                            </li>
+                            <li class="subInnerList__item">
+                                має згоду іншого з&nbsp;подружжя на&nbsp;укладення цього Договору (в&nbsp;разі перебування в&nbsp;одруженому стані);
+                            </li>
+                            <li class="subInnerList__item">
+                                адреса електронної пошти та&nbsp;номер мобільного оператора, зазначені у&nbsp;розділі 6&nbsp;цього Договору, належить Позичальнику, і&nbsp;забезпечені засобами захисту від доступу третіх осіб;
+                            </li>
+                            <li class="subInnerList__item">
+                                надав згоду на&nbsp;отримання повідомлень з&nbsp;інформацією Товариства щодо укладення та&nbsp;виконання цього Договору.
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="innerList__item">
+                        Кредит також забезпечується всім належним Позичальнику на&nbsp;праві власності майном та&nbsp;коштами, на&nbsp;які згідно чинного законодавства України може бути звернено стягнення.
+                    </li>
+                    <li class="innerList__item">
+                        Недійсність окремих умов цього Договору, встановлена рішенням суду, не&nbsp;має наслідком недійсності всього Договору, та&nbsp;в&nbsp;будь-якому разі не&nbsp;звільняє Позичальника від зобов&rsquo;язання повернути Кредит, сплатити проценти за&nbsp;користування Кредитом.
+                    </li>
+                </ul>
+            </li>
+            <li class="list__item list__item_center">
+                РЕКВІЗИТИ ТА&nbsp;ПІДПИСИ СТОРІН
+                <table class="sideTable">
+                    <tr>
+                        <td class="sideTable__item">
+                            <div class="sideTable__header">
+                                ТОВАРИСТВО <br>
+                                ТОВ &laquo;ФІНАНСОВА КОМПАНІЯ &laquo;ФІНАНС ІННОВАЦІЯ&raquo;
+                            </div>
+                            <ul class="sideInfoList">
+                                <li class="sideInfoList__item">
+                                    Адреса: 07403, Київська обл., місто Бровари, вул. Володимира Великого,&nbsp;б.&nbsp;2
+                                </li>
+                                <li class="sideInfoList__item">
+                                    ЄДРПОУ: 41146462
+                                </li>
+                                <li class="sideInfoList__item">
+                                    ПАТ КБ&nbsp;&laquo;ПРИВАТБАНК&raquo;
+                                </li>
+                                <li class="sideInfoList__item">
+                                    МФО: 380269
+                                </li>
+                                <li class="sideInfoList__item">
+                                    Адрес: м. Київ, вул. Грушевського, 1д.
+                                </li>
+                                <li class="sideInfoList__item">
+                                    Рахунок: 26500056200777
+                                </li>
+                                <li class="sideInfoList__item">
+                                    email: support@monetka.com.ua
+                                </li>
+                                <li class="sideInfoList__item">
+                                    Тел. (служба підтримки):
+                                    <div class="tel">
+                                        <div class="tel__k">098&nbsp;760 68 68</div>
+                                        <div class="tel__v">099&nbsp;760 68 68</div>
+                                        <div class="tel__l">093&nbsp;760 68 68</div>
+                                        <div class="tel__u">0&nbsp;800 00 9999</div>
+                                    </div>
+
+                                </li>
+                            </ul>
+
+                        </td>
+                        <td class="sideTable__item">
+                            <div class="sideTable__header">
+                                ПОЗИЧАЛЬНИК <br>
+                                ${A.last_name} ${A.first_name} ${A.middle_name}
+                            </div>
+                            <ul class="sideInfoList">
+                                <li class="sideInfoList__item">
+                                    ${A.passport_type}
+                                </li>
+                                <li class="sideInfoList__item">
+                                    серії <b>${A.passport_series}</b>
+                                </li>
+                                <li class="sideInfoList__item">
+                                    номер <b> ${A.passport_number}</b>,
+                                </li>
+                                <li class="sideInfoList__item">
+                                    виданий <b>${A.passport_issued_by} ${A.passport_issued_date_str}</b>
+                                </li>
+                                <li class="sideInfoList__item">
+                                    Номер картки платника податків <b>${A.inn}</b>
+                                </li>
+                                <li class="sideInfoList__item">
+                                    Адреса реєстрації <b>${A.registration_address}</b>
+                                </li>
+                                <li class="sideInfoList__item">
+                                    е-mail: ${A.email}
+                                </li>
+                                <li class="sideInfoList__item">
+                                    номер мобільного телефону: ${A.mobile_phone}
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sideTable__item">
+                            <div class="director">Директор:
+                            </div>
+                            <div class="director__info">
+                                <div class="signature"></div>
+                                <div class="name">Картамишев С.О.</div>
+                            </div>
+
+                        </td>
+                        <td class="sideTable__item">
+                            <div class="user">
+                                ${A.last_name} ${A.first_name} ${A.middle_name}
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+        </ul>
+    </div>
+    <div class="contractAdd">
+        <div class="contractAdd__header">
+            <div>
+                Додаток &#8470;&nbsp;1
+            </div>
+            <div>
+                до&nbsp;договору
+            </div>
+            <div>
+                &#8470;${A.loan_agreement_number}
+            </div>
+            <div>
+                від ${A.loan_agreement_start_date_str}
+            </div>
+        </div>
+        <div class="contractAdd__title">
+            ГРАФІК РОЗРАХУНКІВ
+        </div>
+        <ul class="addList" >
+            <li class="addList__item">
+                Сторони погодили наступний графік розрахунків:
+                <table class="pay">
+                    <tr>
+                        <td>
+                            Дата <br>
+                            повернення
+                        </td>
+                        <td>
+                            Сума <br>
+                            Кредиту
+                        </td>
+                        <td>
+                            Нарахована <br>
+                            сума процентів
+                        </td>
+                        <td>
+                            Всього <br>
+                            до&nbsp;сплати
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            ${A.loan_agreement_end_date_str}
+                        </td>
+                        <td>
+                            ${A.loan_agreement_sum}
+                        </td>
+                        <td>
+                            ${A.loan_agreement_percent_sum}
+                        </td>
+                        <td>
+                            ${A.loan_agreement_total_sum}
+                        </td>
+                    </tr>
+                </table>
+            </li>
+            <li class="addList__item">
+                Сукупна вартість Кредиту становить ${A.loan_agreement_percent_total}% від суми Кредиту (в&nbsp;процентному вираженні) або ${A.loan_agreement_percent_sum} грн. (у&nbsp;грошовому вираженні) і&nbsp;включає в&nbsp;себе: проценти за&nbsp;користування Кредитом ${A.loan_agreement_percent}% від суми Кредиту (в&nbsp;процентному вираженні) або ${A.loan_agreement_percent_sum} грн. (у&nbsp;грошовому вираженні) та&nbsp;суму кредиту ${A.loan_agreement_total_sum}.
+            </li>
+            <li class="addList__item">
+                Сукупна вартість Кредиту, зазначена у&nbsp;цьому Графіку, є&nbsp;орієнтовною, яка може змінюватися в&nbsp;залежності від строку користування Кредитними коштами.
+            </li>
+            <li class="addList__item">
+                Цей Графік розрахунків укладений у&nbsp;двох оригінальних примірниках, по&nbsp;одному для кожної зі&nbsp;Сторін, та&nbsp;є&nbsp;невід&rsquo;ємною частиною Договору &#8470;&quot;${A.loan_agreement_number}&quot; від &laquo;${A.loan_agreement_start_date_str}&raquo;.
+            </li>
+        </ul>
+        <div class="contractAdd_subTittle">
+            РЕКВІЗИТИ ТА&nbsp;ПІДПИСИ СТОРІН
+        </div>
+        <table class="sideTable">
+            <tr>
+                <td class="sideTable__item">
+                    <div class="sideTable__header">
+                        ТОВАРИСТВО <br>
+                        ТОВ &laquo;ФІНАНСОВА КОМПАНІЯ &laquo;ФІНАНС ІННОВАЦІЯ&raquo;
+                    </div>
+                    <ul class="sideInfoList">
+                        <li class="sideInfoList__item">
+                            Адреса: 07403, Київська обл., місто Бровари, вул. Володимира Великого,&nbsp;б.&nbsp;2
+                        </li>
+                        <li class="sideInfoList__item">
+                            ЄДРПОУ: 41146462
+                        </li>
+                        <li class="sideInfoList__item">
+                            ПАТ КБ&nbsp;&laquo;ПРИВАТБАНК&raquo;
+                        </li>
+                        <li class="sideInfoList__item">
+                            МФО: 380269
+                        </li>
+                        <li class="sideInfoList__item">
+                            Адрес: м. Київ, вул. Грушевського, 1д.
+                        </li>
+                        <li class="sideInfoList__item">
+                            Рахунок: 26500056200777
+                        </li>
+                        <li class="sideInfoList__item">
+                            email: support@monetka.com.ua
+                        </li>
+                        <li class="sideInfoList__item">
+                            Тел. (служба підтримки):
+                            <div class="tel">
+                                <div class="tel__k">098&nbsp;760 68 68</div>
+                                <div class="tel__v">099&nbsp;760 68 68</div>
+                                <div class="tel__l">093&nbsp;760 68 68</div>
+                                <div class="tel__u">0&nbsp;800 00 9999</div>
+                            </div>
+
+                        </li>
+                    </ul>
+
+                </td>
+                <td class="sideTable__item">
+                    <div class="sideTable__header">
+                        ПОЗИЧАЛЬНИК <br>
+                        ${A.last_name} ${A.first_name} ${A.middle_name}
+                    </div>
+                    <ul class="sideInfoList">
+                        <li class="sideInfoList__item">
+                            ${A.passport_type}
+                        </li>
+                        <li class="sideInfoList__item">
+                            серії <b>${A.passport_series}</b>
+                        </li>
+                        <li class="sideInfoList__item">
+                            номер <b> ${A.passport_number}</b>,
+                        </li>
+                        <li class="sideInfoList__item">
+                            виданий <b>${A.passport_issued_by} ${A.passport_issued_date_str}</b>
+                        </li>
+                        <li class="sideInfoList__item">
+                            Номер картки платника податків <b>${A.inn}</b>
+                        </li>
+                        <li class="sideInfoList__item">
+                            Адреса реєстрації <b>${A.registration_address}</b>
+                        </li>
+                        <li class="sideInfoList__item">
+                            е-mail: ${A.email}
+                        </li>
+                        <li class="sideInfoList__item">
+                            номер мобільного телефону: ${A.mobile_phone}
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td class="sideTable__item">
+                    <div class="director">Директор:
+                    </div>
+                    <div class="director__info">
+                        <div class="signature"></div>
+                        <div class="name">Картамишев С.О.</div>
+                    </div>
+
+                </td>
+                <td class="sideTable__item">
+                    <div class="user">
+                        ${A.last_name} ${A.first_name} ${A.middle_name}
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
