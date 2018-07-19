@@ -1,0 +1,253 @@
+@import "vars"
+
+/*==========  Desktop First  ==========*/
+
+
+//Extra large: ≥1200px
++media-breakpoint-down(xl)
+//Large: ≥992px /* Medium Devices, Desktops */
++media-breakpoint-down(lg)
+  .description
+    top: 20%
+    &__text
+      font-size: 1.5rem
+
+  .headerLineWrapper
+    padding: 0 20px
+  .sliderArr
+    bottom: 50%
+    &__prev, &__next
+      padding: 12px 19px
+      font-size: 26px
+  .slider
+    &__item
+      height: 700px
+  .gallery
+    &_portfolio
+      margin-top: 10%
+
+
+//Medium: ≥768px /* Small Devices, Tablets */
++media-breakpoint-down(md)
+  .navBar
+    &_open
+      left: 47%
+  .sliderArr
+    bottom: 30%
+  .sliderNav
+    &__item
+      width: 100px !important
+      height: 100px !important
+    .slick-list
+      .slick-track
+        .slick-slide
+          width: 100px !important
+          height: 100px !important
+          margin-right: 15px
+  .burger
+    display: inline-block
+  .nav
+    display: none
+  .gallery
+    &__item
+      width: 48%
+    &_portfolio
+      margin-top: 12%
+  .contactUs
+    flex-direction: column
+    &__left
+      width: 100%
+      margin-bottom: 2%
+    &__form
+      margin-left: 0
+  .section
+    &__desc
+      &_blog
+        flex-direction: column
+  .blog
+    &__content
+      order: 1
+      width: 100%
+    &__aside
+      display: flex
+      width: 100%
+      justify-content: space-between
+  .asideItem
+     width: 30%
+
+  .post
+    &__descr
+      display: flex
+      flex-direction: column
+    &__text
+      font-size: 14px
+    &__states
+      width: 100%
+      margin-right: 0
+      display: flex
+      justify-content: center
+      align-items: center
+      text-align: center
+      flex-wrap: wrap
+    &__state
+      width: 100%
+
+//Small: ≥576px  /* Extra Small Devices, Phones */
++media-breakpoint-down(sm)
+  .navBar
+    &_open
+      left: 43%
+  .description
+    top: 20%
+    &__text
+      font-size: 1rem
+  .sliderArr
+      &__prev, &__next
+        padding: 10px 17px
+        font-size: 20px
+  .slider__item
+    height: 500px
+  .sliderNav
+    display: none
+  .features
+    &__header
+      font-size: 14px
+    &__text
+      font-size: 14px
+  .tagline
+    margin: 27px 0
+  .center_footer
+    flex-direction: column
+  .footer
+    padding: 45px 0
+    &__recent, &__about, &__media
+      width: 100%
+    &__header
+      margin-bottom: 14px
+    &__aboutText
+      font-size: 14px
+    .postList
+      &__item
+        padding: 10px
+      &__link
+        font-size: 14px
+    .gallery
+      &_portfolio
+        margin-top: 15%
+  .contactUs
+    font-size: 14px
+    line-height: 14px
+
+  //
+  .blog
+    &__content
+
+    &__aside
+      flex-wrap: wrap
+      margin-top: 5%
+  .asideItem
+    width: 100%
+    &__header
+      margin-bottom: 3%
+  //.post
+  //  &__states
+  //    width: 65%
+  //    margin-right: 3%
+
+  .mainContact
+    &__tel, &__fax, &__email
+      font-size: 14px
+      line-height: 14px
+
+
+//Extra small: >0
++media-breakpoint-down(xs)
+  .blog
+    &__aside
+      margin-top: 20%
+  .advertisements
+    justify-content: space-around
+  //.post
+  //  &__descr
+  //    display: flex
+  //    flex-direction: column
+  //  &__text
+  //    font-size: 14px
+  //  &__states
+  //    width: 100%
+  //    margin-right: 0
+  //    display: flex
+  //    justify-content: center
+  //    align-items: center
+  //    text-align: center
+  //    flex-wrap: wrap
+  //  &__state
+  //    width: 100%
+  .center
+    padding: 0 20px
+  .section__header
+    width: calc(100% - 40px)
+
+  .slider__item
+    height: 300px
+  .sliderArr
+    display: none
+  .features
+    flex-direction: column
+    &__item
+      width: 100%
+      margin: 0
+      padding: 5px
+  .tagline
+    margin: 10px 0
+    font-size: 14px
+  .gallery
+    padding: 10px
+    &_portfolio
+      margin-top: 25%
+  .tabs
+    &__link
+      padding: 5px 4px
+      font-size: 12px
+  .gallery__item
+    width: 100%
+  .form
+    &__item, &__area
+      margin-bottom: 2.2%
+    &__item
+      width: 100%
+      margin-right: 0
+
+
+/*==========  Mobile First  ==========*/
+
+//Extra small: <576px
++media-breakpoint-up(xs)
+
+//Small: ≤576px
++media-breakpoint-up(sm)
+
+//Medium: ≤768px
++media-breakpoint-up(md)
+
+//Large: ≤992px
++media-breakpoint-up(lg)
+
+//Extra large: ≤1200px
++media-breakpoint-up(xl)
+
+/*
+
+	.clickBurger span:nth-child(1)
+		transform: rotate(45deg) scaleX(0.7)
+		top: 13px
+		left: -8px
+
+	.clickBurger span:nth-child(2)
+		transform: scale(0)
+		transition-duration: 50ms
+
+	.clickBurger span:nth-child(3)
+		transform: rotate(-45deg) scaleX(0.7)
+		top: 13px
+		left: 7px */

@@ -1,0 +1,768 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+
+::selection
+  background-color: $accent
+  color: #fff
+* a:hover
+  cursor: url("/img/cursor.ico"), pointer
+html,
+body
+  height: 100%
+
+body
+  font-size: 16px
+  color: $textColor
+  min-width: 350px
+  position: relative
+  background: #fff
+  line-height: 1.65
+  font-family: $defaultFont
+  overflow-x: hidden
+
+  input, textarea
+    outline: none
+    &:focus:required:invalid
+      border-color: red
+    &:required:valid
+      border-color: green
+
+section
+  position: relative
+  background-size: cover
+  background-position: center
+
+.center
+  max-width: 1920px
+  margin: 0 auto
+  padding: 0 40px
+  &_headerTop, &_headerBottom
+    display: flex
+  &_headerTop
+    justify-content: flex-end
+  &_headerBottom
+    justify-content: space-between
+  &_footer
+    display: flex
+    justify-content: space-between
+
+.mainWrapper
+  margin: 0 auto
+  display: flex
+  flex-direction: column
+  min-height: 100%
+
+.content
+  flex: 1
+
+.header
+  &__topLine
+    width: 100%
+    background: #1c1c1c
+    padding: 15px 0
+  &__navigation
+    background: #fff
+    padding: 13px 0
+    position: relative
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.7)
+    &_openMenu
+      height: 100vh
+  &__bottomLine
+    width: 100%
+    height: 152px
+    background: url("/img/img(5).jpg") no-repeat
+    background-size: cover
+.socialIcons
+  &__link
+    margin-right: 17px
+    color: #fff
+    transition: color .5s ease-in-out
+    &:hover
+      color: $accent
+  &__link:last-child
+    margin-right: 0
+
+
+
+
+.logo
+  text-align: center
+  font-family: $accentFont
+  color: $textColorHead
+  font-size: 1.5rem
+  display: flex
+  align-items: center
+  &:hover
+    text-decoration: none
+    color: $textColorHead
+  &__icon
+    width: 34px
+    height: 34px
+    background: $accent
+    margin-right: 9px
+    color: #fff
+  &__text
+    span
+      color: $accent
+
+.nav
+  align-self: center
+  &_open
+    display: block !important
+
+.navBar
+  display: flex
+  margin: 0
+  padding: 0
+  &_open
+    height: 100%
+    flex-direction: column
+    justify-content: center
+    position: absolute
+    top: -50px
+    left: 40%
+  &__item
+    list-style: none
+    margin-right: 25px
+    text-transform: uppercase
+    font-size: 12px
+    font-weight: 500
+    &_open
+      text-align: center
+      margin: 40px 0
+  &__item:last-child
+    margin-right: 0
+  &__link
+    color: $textColorHead
+    transition: color .5s ease
+    &_active, &:hover
+      color: $accent
+      text-decoration: none
+
+//Burger//
+.burger
+  width: 55px
+  height: 40px
+  position: relative
+  transition: .1s
+  cursor: pointer
+  display: none
+  z-index: 5
+  span
+    background-color: $accent
+    position: absolute
+    border-radius: 2px
+    transition: .3s cubic-bezier(.8, .5, .2, 1.4)
+    width: 100%
+    height: 5px
+  span:nth-child(1)
+    top: 0
+    left: 0
+  span:nth-child(2)
+    top: 18px
+    left: 0
+  span:nth-child(3)
+    bottom: 0
+    left: 0
+  &_open
+    span:nth-child(1)
+      transform: rotate(45deg) scaleX(0.8)
+      top: 18px
+      left: -18px
+    span:nth-child(2)
+      transform: scale(0)
+      transition-duration: 50ms
+    span:nth-child(3)
+      transform: rotate(-45deg) scaleX(0.8)
+      top: 18px
+      left: 10px
+/////////
+.section
+  &__slider
+    position: relative
+  &__header
+    position: absolute
+    top: -38px
+    width: calc(100% - 80px)
+    padding: 2%
+    background: $textColorHead
+    font-family: $accentFont
+    font-weight: bold
+  &__desc
+    padding: 26px
+    margin-top: 7.6%
+    &_blog
+      margin-top: 0
+      padding: 26px 0
+      display: flex
+      justify-content: space-between
+
+
+
+.portfolio
+  &__header
+    font-size: 30px
+    margin-bottom: 13px
+    color: #fff
+  &__desc
+    color: #d1d1d0
+    font-size: 14px
+//      ////slider
+.wrapperForSlider
+  width: 100%
+  position: relative
+
+.slider
+  &__item
+    width: 100%
+    height: 900px
+  &__img
+    width: 100%
+    height: 100%
+
+.sliderNav
+  padding: 27px
+  background-color: #1c1c1c
+  margin-top: -5%
+  &__item
+    width: 150px !important
+    height: 150px
+  &__img
+    width: 100%
+    height: 100%
+    margin-right: 10px
+  .slick-list
+    padding: 0 !important
+    .slick-track
+      .slick-slide
+        width: 150px !important
+        height: 150px !important
+        margin-right: 25px
+        img
+          max-width: 100%
+      .slick-center
+        border: 5px solid $accent
+        overflow: hidden
+
+.sliderArr
+  position: absolute
+  left: 40px
+  bottom: 40%
+  z-index: 100
+  &__prev, &__next
+    display: inline-block
+    padding: 24px 38px
+    background: $accent
+    text-align: center
+    color: #fff
+    font-size: 36px
+    line-height: 32px
+    i
+      display: block
+
+
+
+
+
+.description
+  position: absolute
+  top: 15%
+  left: 40px
+  z-index: 99
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+  &__text
+    color: #fff
+    font-family: $accentFont
+    font-weight: bold
+    padding: 13px
+    background-color: rgba(0, 0, 0, 0.75)
+    font-size: 2.5rem
+    margin: 0 0 1px
+    display: inline-block
+
+
+////////////////////
+
+
+.featuresWrap
+  border: 1px solid #dfdfdf
+  background: #fff
+
+.features
+  padding: 20px 0
+  display: flex
+  justify-content: space-between
+  &__item
+    width: 30%
+    margin: 0 20px
+  &__header
+    font-family: $accentFont
+    font-size: 18px
+  &__logo
+    background-color: #25282a
+    width: 31px
+    height: 31px
+    padding: 7px
+    margin-right: 16px
+    color: $textColorHead
+    i
+      color: #fff
+  &__text
+    font-size: 14px
+
+.tagline
+  margin: 47px 0
+  font-family: $accentFont
+  font-size: 18px
+  text-align: center
+  color: $textColorHead
+  &__accent
+    background: $accent
+    color: #ffffff
+    font-weight: 700
+    padding: 10px 20px
+    margin: 0 10px
+
+
+.gallery
+  padding: 26px
+  &_portfolio
+    margin-top: 8%
+  &__content
+    display: flex
+    //justify-content: space-between
+    justify-content: space-between
+    flex-wrap: wrap
+  &__item
+    display: block
+    position: relative
+    width: 24%
+    height: auto
+    //margin-right: 23px
+    margin-bottom: 23px
+    //&:nth-child(4n)
+      margin-right: 0
+    &:before
+      content: ''
+      width: 100%
+      height: 100%
+      position: absolute
+      top: 0
+      left: 0
+      background: $textColorHead
+      transition: all .5s ease-in
+      opacity: .75
+    &:hover:before
+      opacity: 0
+    &:hover .gallery__desc
+      bottom: 0
+      opacity: 1
+
+
+    img
+      width: 100%
+      height: 100%
+  &__desc
+    opacity: 0
+    position: absolute
+    bottom: 0
+    left: 0
+    padding: 10px
+    background: rgba(0, 0, 0, 0.75)
+    width: 100%
+    transition: opacity .5s ease-in
+
+
+  &__descText
+    font-family: $accentFont
+    font-weight: bold
+    font-size: 14px
+    color: #fff
+
+    margin: 0
+
+
+.tabs
+  display: flex
+  padding: 0
+  &__item
+    list-style: none
+  &__link
+    font-size: 14px
+    padding: 10px 8px
+    color: $textColorHead
+    font-family: $accentFont
+    display: inline-block
+    text-transform: capitalize
+    transition: all .5s ease-in-out
+    &_blog
+      padding: 9px 8px
+      color: #2d2d2d
+      font-family: $defaultFont
+      font-weight: bold
+      font-size: 18px
+    &:hover, &_active
+      color: #fff !important
+      background: $accent
+      text-decoration: none
+.map
+  width: 100%
+  height: 100%
+  &__itrm
+    width: 100%
+    height: 450px
+    border: none
+.contactUs
+  display: flex
+  justify-content: space-between
+  margin-top: 2%
+  font-size: 16px
+  line-height: 18px
+  color:  #252525
+  &__left
+    width: 35%
+  &__desc
+    margin-bottom: 1.2%
+  &__header
+    color: $accent
+    font-weight: 500
+    margin: 0
+  &__form
+    margin-left: 7%
+.mainContact
+  &__tel, &__fax, &__email
+    color:  #252525
+    font-size: 16px
+    line-height: 18px
+  &__tel:hover
+    text-decoration: none
+    color: inherit
+    cursor: inherit
+.form
+  display: flex
+  flex-wrap: wrap
+  //justify-content: center
+  &__item, &__area
+    padding: 1.2%
+    margin-bottom: 1.2%
+    border: 1px solid #252525
+    &::placeholder
+      color: #252525
+    &:hover, &:focus
+      border-color: $accent
+      color: $accent
+      &::placeholder
+        color: $accent
+  &__item
+    width: 49.4%
+    margin-right: 1.2%
+    &:first-child, &:nth-child(2)
+      text-transform: capitalize
+    &:nth-child(2n)
+      margin-right: 0
+  &__area
+    width: 100%
+    height: 200px
+  &__btn
+    text-transform: uppercase
+    color: #fff
+    padding: 10px
+    background: $accent
+    border: none
+
+
+
+.footer
+  position: relative
+  background: #1c1c1c
+  padding: 75px 0
+  &:before
+    background: $accent
+    height: 8px
+    width: 100%
+    content: ''
+    position: absolute
+    top: -35px
+    left: 0
+    right: 0
+    z-index: -998
+  &:after
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    margin-top: -35px
+    z-index: -999
+    width: 100%
+    height: 100%
+    background: #1c1c1c
+  &__recent, &__about, &__media
+    width: 30%
+  &__header
+    font-size: 14px
+    font-weight: bold
+    color: #fff
+    margin-bottom: 23px
+.center_footer
+  z-index: 9999
+
+.postList
+  padding: 0
+  margin: 0
+  display: flex
+  flex-direction: column
+  text-align: left
+  &__item
+    list-style: none
+    position: relative
+    padding: 20px 0
+    &:last-child
+      &:after
+        content: none
+    &:first-child
+      padding-top: 0
+    &:after
+      content: ''
+      height: 1px
+      width: 100%
+      background: #3b3b3b
+      position: absolute
+      bottom: 0
+      left: 0
+  &__link
+    font-family: $accentFont
+    font-weight: bold
+    color: #adadad
+    display: block
+    &:hover
+      text-decoration: none
+      color: $accent
+
+//////BLOG
+
+
+.blog
+  margin-top: 10%
+  &__content
+    width: 70%
+  &__aside
+    width: 25%
+
+.post
+  width: 100%
+  position: relative
+  padding: 0 0 1.6%
+  margin-bottom: 1.6%
+  &:after
+    content: ''
+    position: absolute
+    left: 0
+    bottom: 0
+    height: 5px
+    width: 100%
+    background: $accent
+  &:last-of-type:after
+    display: none
+
+
+  &__header
+    font-family: $accentFont
+    color: #464646
+    font-size: 18px
+    margin-bottom: 16px
+  audio
+    width: 100%
+  &__content
+    width: 100%
+    height: 100%
+  &__descr
+    display: flex
+    padding: 1.6% 0
+  &__states
+    width: 45%
+    margin-right: 5%
+  &__state
+    line-height: 20px
+
+    &_header
+      font-family: $accentFont
+      font-size: 14px
+      color: #252525
+      margin: 0
+    &_info
+      color: $accent
+      font-size: 12px
+      display: inline-block
+      position: relative
+    &_afterLine
+      margin-right: 16px
+      &:after
+        content: ''
+        position: absolute
+        top: 4px
+        right: -10px
+        width: 1px
+        height: 12px
+        background: $accent
+  &__video
+    padding: 56.25% 0 0 0
+    position: relative
+  &__videotem
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    border: none
+.asideItem
+  color: #252525
+  margin-bottom: 1.7%
+  &__header
+    font-family: $accentFont
+    position: relative
+    margin-bottom: 8%
+    &:after
+      content: ''
+      position: absolute
+      left: 0
+      bottom: -5px
+      height: 5px
+      width: 100%
+      background: $accent
+  &__content
+    font-size: 14px
+  &__text
+    margin-bottom: 0
+.categories
+  padding: 0
+  margin: 0
+  &__item
+    list-style: none
+  &__link
+    color: #252525
+    line-height: 18px
+  &__count
+    font-weight: 500
+.advertisements
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+  &__item
+    border: 1px solid #c6c6c6
+    box-sizing: border-box
+    background-color:  #f5f5f5
+    height: 100px
+    width: 100px
+    padding: 5%
+    position: relative
+    display: flex
+    align-items: center
+    justify-content: center
+    text-align: center
+    font-family: $accentFont
+    color:  #c6c6c6
+    margin-bottom: 7%
+    &:nth-child(2n)
+      margin-right: 0
+    &:hover
+      text-decoration: none
+      color: #c6c6c6
+    &:hover .advertisements__img
+      opacity: 1
+  &__img
+    width: 100%
+    height: 100%
+    position: absolute
+    top: 0
+    left: 0
+    opacity: 0
+    transition: opacity .8s ease-in-out
+    img
+      width: 100%
+      height: 100%
+  &__header
+    text-transform: capitalize
+
+  //position: relative
+
+
+
+/////SOCIAL MEDIA FOOTER ICON
+.socialMedia
+  display: flex
+  flex-wrap: wrap
+  &__link
+    &_behance, &_blogger, &_digg, &_dribbble, &_email, &_evernote,
+    &_facebook, &_flickr, &_google, &_linkedin, &_path, &_picasa,
+    &_reddit, &_rss, &_skype, &_stumble-upon, &_tumblr, &_witter, &_vimeo, &_zerply
+      display: inline-block
+      background: url('/img/socialIcons/iconsMedia.png') no-repeat
+      overflow: hidden
+      text-indent: - 9999 px
+      text-align: left
+      width: 32px
+      height: 32px
+      margin-right: 8px
+      margin-bottom: 8px
+      transition: all .5s ease-in-out
+      &:hover
+        transform: scale(1.1)
+        box-shadow: 0 3px 33px -6px rgba(255, 255, 255, 0.76)
+
+    &_rss
+      background-position: -50px -123px
+    &_facebook
+      background-position: -90px -41px
+    &_twitter
+      background-position: -50px -164px
+    &_email
+      background-position: -10px 0
+    &_tumblr
+      background-position: -10px -164px
+    &_path
+      background-position: -90px -82px
+    &_vimeo
+      background-position: -90px -164px
+    &_zerply
+      background-position: -130px -164px
+    &_picasa
+      background-position: -130px -82px
+    &_stumble-upon
+      background-position: -130px -123px
+    &_skype
+      background-position: -90px -123px
+    &_reddit
+      background-position: -10px -123px
+    &_evernote
+      background-position: -50px -41px
+    &_behance
+      background-position: -10px 0
+    &_dribbble
+      background-position: -130px 0
+    &_digg
+      background-position: -90px 0
+    &_blogger
+      background-position: -50px 0
+    &_flickr
+      background-position: -130px -41px
+    &_linkedin
+      background-position: -50px -82px
+    &_google
+      background-position: -10px -82px
+
+@import "media"
+// Always at the end
+@media only screen and (min-device-height: 320px) and (max-device-height: 480px)
+
+  .menuBurger
+    &__logo
+      display: none
+  .menuBurger .menuListBurger
+    &__item
+      margin: 0
+    &__item_link
+
+      font-size: 14px
